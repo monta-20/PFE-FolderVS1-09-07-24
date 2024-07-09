@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<!--RDBI-->
+<SID Name="RDBI" value ="0x22">
+<SUB-FUNCS CATEGORY="SUB-FUNCTIONS-Response" SIZE="1">
+	<SUB-FUNC Name="Positive response" VALUE="0x62">
+	      Service supported in active session.
+	    </SUB-FUNC>
+        <SUB-FUNC Name="Negative response" VALUE="0x7F">
+	      Service not supported in active session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="incorrectMessageLength" VALUE="0x13">
+	     This NRC shall be sent if the length of the message is wrong.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="Response Too Long" VALUE="0x14">
+	        This NRC shall be sent if the total length of the response message exceeds the limit
+		 of the underlying transport protocol (e.g., when multiple DIDs are requested in a single request).
+	    </SUB-FUNC>
+		<SUB-FUNC Name="conditionsNotCorrect" VALUE="0x22">
+	         This NRC shall be returned if the criteria of the ECU Operation Mode for the Request Seed request is not met or 
+		 the active diagnostics session in the server does not corresponds to a non-defaultSession 
+		 or the requested Security level is not supported in current session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="requestOutOfRange" VALUE="0x31">
+	        This NRC shall be returned if:
+                 1) the specified dataFormatIdentifier is not valid.
+                 2) The specified addressAndLengthFormatIdentifier is not valid.
+                 3) The specified memoryAddress/memorySize is not valid.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="securityAccessDenied" VALUE="0x33">
+	        This shall be returned by the server if the server is in locked state and the client requested the 0x34 service.
+		 So the client shall unlock the ECU first before 0x34 request.
+	    </SUB-FUNC>
+	</SUB-FUNCS>
+</SID>	
+<!--WDBI-->
+<SID Name="WDBI" value = "0x2E">
+    <SUB-FUNCS CATEGORY="SUB-FUNCTIONS-Response" SIZE="1">
+	<SUB-FUNC Name="Positive response" VALUE="0x6E">
+	      Service supported in active session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="Negative response" VALUE="0x7F">
+			Service not supported in active session.
+		</SUB-FUNC>
+	</SUB-FUNCS>
+</SID>
+<!--Diagnostic Session Control-->
+<SID Name="DSC" value="0x10">
+	 <SUB-FUNCS CATEGORY="SUB-FUNCTIONS-Response" SIZE="1">
+	    <SUB-FUNC Name="Positive response" VALUE="0x50">
+	      Service supported in active session.
+	    </SUB-FUNC>
+        <SUB-FUNC Name="Negative response" VALUE="0x7F">
+	      Service not supported in active session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="sub-functionNotSupported" VALUE="0x12">
+	     This NRC shall be sent if the sub-function parameter is not supported.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="incorrectMessageLength" VALUE="0x13">
+	     This NRC shall be sent if the length of the message is wrong.
+	    </SUB-FUNC>
+		   
+     </SUB-FUNCS>	
+</SID>
+
+<!--Security Access-->
+<SID Name="SA" value="0x27">
+    <SUB-FUNCS CATEGORY="SUB-FUNCTIONS-Response" SIZE="1">
+        <SUB-FUNC Name="Positive response" VALUE="0x67">
+	      Service supported in active session.
+	    </SUB-FUNC>
+        <SUB-FUNC Name="Negative response" VALUE="0x7F">
+	      Service not supported in active session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="sub-functionNotSupported" VALUE="0x12">
+	     This NRC shall be sent if the sub-function parameter is not supported.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="incorrectMessageLength" VALUE="0x13">
+	     This NRC shall be sent if the length of the message is wrong.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="conditionsNotCorrect" VALUE="0x22">
+	     This NRC shall be returned if the criteria of the ECU Operation Mode for the Request Seed request is not met or 
+		 the active diagnostics session in the server does not corresponds to a non-defaultSession 
+		 or the requested Security level is not supported in current session.
+	    </SUB-FUNC>
+		
+    </SUB-FUNCS>
+</SID>
+
+<!--Request Download-->
+
+<SID Name="RD" value="0x34">
+    <SUB-FUNCS CATEGORY="SUB-FUNCTIONS-Response" SIZE="1">
+        <SUB-FUNC Name="Positive response" VALUE="0x71">
+	      Service supported in active session.
+	    </SUB-FUNC>
+        <SUB-FUNC Name="Negative response" VALUE="0x7F">
+	      Service not supported in active session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="incorrectMessageLength" VALUE="0x13">
+	     This NRC shall be sent if the length of the message is wrong.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="conditionsNotCorrect" VALUE="0x22">
+	     This NRC shall be returned if the criteria of the ECU Operation Mode for the Request Seed request is not met or 
+		 the active diagnostics session in the server does not corresponds to a non-defaultSession 
+		 or the requested Security level is not supported in current session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="requestOutOfRange" VALUE="0x31">
+	     This NRC shall be returned if:
+                 1) the specified dataFormatIdentifier is not valid.
+                 2) The specified addressAndLengthFormatIdentifier is not valid.
+                 3) The specified memoryAddress/memorySize is not valid.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="securityAccessDenied" VALUE="0x33">
+	     This shall be returned by the server if the server is in locked state and the client requested the 0x34 service.
+		 So the client shall unlock the ECU first before 0x34 request.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="uploadDownloadNotAccepted" VALUE="0x70">
+	     If there are some faults for which the server can not perform the software download request.
+	    </SUB-FUNC>
+		
+		
+    </SUB-FUNCS>
+</SID>
+<!--Request Upload-->
+<SID Name="RU" value="0x35">
+    <SUB-FUNCS CATEGORY="SUB-FUNCTIONS-Response" SIZE="1">
+        <SUB-FUNC Name="Positive response" VALUE="0x75">
+	      Service supported in active session.
+	    </SUB-FUNC>
+        <SUB-FUNC Name="Negative response" VALUE="0x7F">
+	      Service not supported in active session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="incorrectMessageLength" VALUE="0x13">
+	     This NRC shall be sent if the length of the message is wrong.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="conditionsNotCorrect" VALUE="0x22">
+	     This NRC shall be returned if the criteria of the ECU Operation Mode for the Request Seed request is not met or 
+		 the active diagnostics session in the server does not corresponds to a non-defaultSession 
+		 or the requested Security level is not supported in current session.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="requestOutOfRange" VALUE="0x31">
+	     This NRC shall be returned if:
+                 1) the specified dataFormatIdentifier is not valid.
+                 2) The specified addressAndLengthFormatIdentifier is not valid.
+                 3) The specified memoryAddress/memorySize is not valid.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="securityAccessDenied" VALUE="0x33">
+	     This shall be returned by the server if the server is in locked state and the client requested the 0x34 service.
+		 So the client shall unlock the ECU first before 0x34 request.
+	    </SUB-FUNC>
+		<SUB-FUNC Name="uploadDownloadNotAccepted" VALUE="0x70">
+	     If there are some faults for which the server can not perform the software download request.
+	    </SUB-FUNC>
+		
+		
+    </SUB-FUNCS>
+</SID>
+
+</root>
